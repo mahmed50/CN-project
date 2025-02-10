@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Networking Project demonstrating DNS, IP addresses, and networking principles.">
+    <meta name="keywords" content="computer networking, DNS, IP address, hosting, domain, HTTPS">
+    <meta name="author" content="Mohamed Ahmed">
     <title>My Networking Project</title>
     <style>
         body {
@@ -18,8 +21,33 @@
             padding: 20px;
             font-size: 24px;
         }
+        nav {
+            margin: 20px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
         .content {
             padding: 50px;
+        }
+        .challenges, .references {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #eaeaea;
+            border-radius: 10px;
         }
         footer {
             background: #333;
@@ -29,19 +57,64 @@
             bottom: 0;
             width: 100%;
         }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        .dark-mode header, .dark-mode footer {
+            background-color: #222;
+        }
     </style>
 </head>
 <body>
     <header>
         My Networking Project
     </header>
-    <div class="content">
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#challenges">Challenges & Solutions</a></li>
+            <li><a href="#references">References</a></li>
+        </ul>
+    </nav>
+    <div class="content" id="home">
         <h1>Welcome to My Website</h1>
         <p>This website is created as part of my Computer Networking project.</p>
         <p>It demonstrates the use of domains, hosting, and basic networking concepts.</p>
     </div>
+    
+    <div class="challenges" id="challenges">
+        <h2>Challenges & Solutions</h2>
+        <p>During the project, I faced several challenges:</p>
+        <ul>
+            <li><strong>Challenge:</strong> Setting up the domain and DNS correctly.</li>
+            <li><strong>Solution:</strong> I followed the instructions provided by GitHub Pages to configure the domain name.</li>
+            <li><strong>Challenge:</strong> Implementing security features like HTTPS.</li>
+            <li><strong>Solution:</strong> GitHub Pages automatically serves the site over HTTPS, which resolved the issue.</li>
+        </ul>
+    </div>
+
+    <div class="references" id="references">
+        <h2>References</h2>
+        <p>Here are some resources I used for the project:</p>
+        <ul>
+            <li><a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a></li>
+            <li><a href="https://www.cloudflare.com/learning/ddos/what-is-dns/" target="_blank">Understanding DNS</a></li>
+        </ul>
+    </div>
+
     <footer>
-        &copy; 2025 Mohamed Ahmed
+        &copy; 2025 Mohamed Ahmed | <button id="dark-mode-toggle">Toggle Dark Mode</button>
     </footer>
+
+    <script>
+        const toggleDarkMode = () => {
+            document.body.classList.toggle('dark-mode');
+        };
+
+        const darkModeButton = document.getElementById('dark-mode-toggle');
+        darkModeButton.addEventListener('click', toggleDarkMode);
+    </script>
 </body>
-</html>
+</html>v
