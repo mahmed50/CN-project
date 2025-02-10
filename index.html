@@ -3,97 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Computer Networking Project demonstrating DNS, IP addresses, and networking principles.">
-    <meta name="keywords" content="computer networking, DNS, IP address, hosting, domain, HTTPS">
-    <meta name="author" content="Mohamed Ahmed">
     <title>My Networking Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="A Computer Networking project demonstrating domain setup, hosting, and networking concepts.">
+    <meta name="robots" content="index, follow">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
             background-color: #f4f4f4;
-            transition: background-color 0.3s ease;
+            transition: background 0.5s;
         }
         header {
             background: #333;
             color: white;
             padding: 20px;
+            text-align: center;
             font-size: 24px;
-            transition: background-color 0.3s ease;
         }
         nav {
-            margin: 20px 0;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+            background: #444;
+            padding: 10px;
             text-align: center;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #333;
+        nav a {
+            color: white;
             text-decoration: none;
+            margin: 0 15px;
             font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #00f;
         }
         .content {
             padding: 50px;
+            text-align: center;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        .dark-mode button {
+            background: #fff;
+            color: #222;
         }
         footer {
             background: #333;
             color: white;
             padding: 10px;
+            text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
-        }
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #333;
-            color: white;
-        }
-        .dark-mode header, .dark-mode footer {
-            background-color: #222;
-        }
-        .dark-mode nav ul li a {
-            color: white;
-        }
-        /* Feedback form */
-        .feedback-form {
-            margin-top: 30px;
-            background-color: #eaeaea;
-            padding: 20px;
-            border-radius: 10px;
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .feedback-form input, .feedback-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback-form button {
-            background-color: #333;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .feedback-form button:hover {
-            background-color: #00f;
         }
     </style>
 </head>
@@ -102,38 +60,33 @@
         My Networking Project
     </header>
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#feedback">Feedback</a></li>
-        </ul>
+        <a href="#about">About</a>
+        <a href="#networking">Networking Concepts</a>
+        <a href="#contact">Contact</a>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </nav>
-    <div class="content" id="home">
+    <div class="content" id="about">
         <h1>Welcome to My Website</h1>
         <p>This website is created as part of my Computer Networking project.</p>
         <p>It demonstrates the use of domains, hosting, and basic networking concepts.</p>
     </div>
-
-    <div class="feedback-form" id="feedback">
-        <h2>Feedback</h2>
-        <p>Please leave your feedback below:</p>
-        <form>
-            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
-            <textarea id="feedback-text" name="feedback" rows="4" placeholder="Your Feedback" required></textarea><br>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="content" id="networking">
+        <h2>Networking Concepts</h2>
+        <p><strong>Domain & Hosting:</strong> This website is hosted using GitHub Pages with a custom domain.</p>
+        <p><strong>DNS & IP:</strong> The domain name resolves to an IP address via DNS servers.</p>
+        <p><strong>Protocols:</strong> The site uses HTTPS for secure communication.</p>
     </div>
-
+    <div class="content" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </div>
     <footer>
-        &copy; 2025 Mohamed Ahmed | <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        &copy; 2025 Mohamed Ahmed
     </footer>
-
     <script>
-        const toggleDarkMode = () => {
-            document.body.classList.toggle('dark-mode');
-        };
-
-        const darkModeButton = document.getElementById('dark-mode-toggle');
-        darkModeButton.addEventListener('click', toggleDarkMode);
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
     </script>
 </body>
 </html>
