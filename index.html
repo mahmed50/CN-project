@@ -7,19 +7,22 @@
     <meta name="keywords" content="computer networking, DNS, IP address, hosting, domain, HTTPS">
     <meta name="author" content="Mohamed Ahmed">
     <title>My Networking Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
             background-color: #f4f4f4;
+            transition: background-color 0.3s ease;
         }
         header {
             background: #333;
             color: white;
             padding: 20px;
             font-size: 24px;
+            transition: background-color 0.3s ease;
         }
         nav {
             margin: 20px 0;
@@ -27,6 +30,7 @@
         nav ul {
             list-style-type: none;
             padding: 0;
+            text-align: center;
         }
         nav ul li {
             display: inline;
@@ -36,18 +40,13 @@
             color: #333;
             text-decoration: none;
             font-size: 18px;
+            transition: color 0.3s ease;
         }
         nav ul li a:hover {
-            text-decoration: underline;
+            color: #00f;
         }
         .content {
             padding: 50px;
-        }
-        .challenges, .references {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: #eaeaea;
-            border-radius: 10px;
         }
         footer {
             background: #333;
@@ -65,6 +64,37 @@
         .dark-mode header, .dark-mode footer {
             background-color: #222;
         }
+        .dark-mode nav ul li a {
+            color: white;
+        }
+        /* Feedback form */
+        .feedback-form {
+            margin-top: 30px;
+            background-color: #eaeaea;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback-form button {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-form button:hover {
+            background-color: #00f;
+        }
     </style>
 </head>
 <body>
@@ -74,8 +104,7 @@
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#challenges">Challenges & Solutions</a></li>
-            <li><a href="#references">References</a></li>
+            <li><a href="#feedback">Feedback</a></li>
         </ul>
     </nav>
     <div class="content" id="home">
@@ -83,25 +112,15 @@
         <p>This website is created as part of my Computer Networking project.</p>
         <p>It demonstrates the use of domains, hosting, and basic networking concepts.</p>
     </div>
-    
-    <div class="challenges" id="challenges">
-        <h2>Challenges & Solutions</h2>
-        <p>During the project, I faced several challenges:</p>
-        <ul>
-            <li><strong>Challenge:</strong> Setting up the domain and DNS correctly.</li>
-            <li><strong>Solution:</strong> I followed the instructions provided by GitHub Pages to configure the domain name.</li>
-            <li><strong>Challenge:</strong> Implementing security features like HTTPS.</li>
-            <li><strong>Solution:</strong> GitHub Pages automatically serves the site over HTTPS, which resolved the issue.</li>
-        </ul>
-    </div>
 
-    <div class="references" id="references">
-        <h2>References</h2>
-        <p>Here are some resources I used for the project:</p>
-        <ul>
-            <li><a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a></li>
-            <li><a href="https://www.cloudflare.com/learning/ddos/what-is-dns/" target="_blank">Understanding DNS</a></li>
-        </ul>
+    <div class="feedback-form" id="feedback">
+        <h2>Feedback</h2>
+        <p>Please leave your feedback below:</p>
+        <form>
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            <textarea id="feedback-text" name="feedback" rows="4" placeholder="Your Feedback" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 
     <footer>
@@ -117,4 +136,4 @@
         darkModeButton.addEventListener('click', toggleDarkMode);
     </script>
 </body>
-</html>v
+</html>
