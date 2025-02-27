@@ -6,6 +6,23 @@
     <title>My Networking Project</title>
     <meta name="description" content="A Computer Networking project demonstrating domain setup, hosting, and networking concepts.">
     <meta name="robots" content="index, follow">
+    
+    <!-- Enforce HTTPS -->
+    <script>
+        if (window.location.protocol !== 'https:') {
+            window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR-GA-ID');
+    </script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +30,13 @@
             padding: 0;
             background-color: #f4f4f4;
             transition: background 0.5s;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+            loading: lazy; /* Performance Optimization */
         }
         header {
             background: #333;
@@ -39,10 +63,6 @@
         .dark-mode {
             background-color: #222;
             color: white;
-        }
-        .dark-mode button {
-            background: #fff;
-            color: #222;
         }
         footer {
             background: #333;
@@ -101,13 +121,12 @@
     <div class="content" id="about">
         <h1>Welcome to My Website</h1>
         <p>This website is created as part of my Computer Networking project.</p>
-        <p>It demonstrates the use of domains, hosting, and basic networking concepts.</p>
     </div>
     <div class="content" id="networking">
         <h2>Networking Concepts</h2>
-        <p><strong>Domain & Hosting:</strong> This website is hosted using GitHub Pages with a custom domain.</p>
-        <p><strong>DNS & IP:</strong> The domain name resolves to an IP address via DNS servers.</p>
-        <p><strong>Protocols:</strong> The site uses HTTPS for secure communication.</p>
+        <p><strong>Domain & Hosting:</strong> Hosted using GitHub Pages with a custom domain.</p>
+        <p><strong>DNS & IP:</strong> The domain resolves to an IP address via DNS servers.</p>
+        <p><strong>Security:</strong> HTTPS encryption enforced.</p>
     </div>
     <div class="content" id="contact">
         <h2>Contact Me</h2>
@@ -119,21 +138,38 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
                 
+                <!-- Google reCAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="YOUR-RECAPTCHA-SITE-KEY"></div>
+                
                 <button type="submit">Send</button>
             </form>
             <p id="responseMessage" style="color: green; display: none;">Message sent successfully!</p>
         </div>
     </div>
     <footer>
-        &copy; 2025 
+        &copy; 2025
     </footer>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
-
+        
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
+            let name = document.getElementById("name").value;
+            let message = document.getElementById("message").value;
+            
+            // Sanitize user input
+            name = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            message = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
+            if (grecaptcha.getResponse() === "") {
+                alert("Please complete the reCAPTCHA.");
+                return;
+            }
+            
             document.getElementById("responseMessage").style.display = "block";
             setTimeout(() => {
                 document.getElementById("responseMessage").style.display = "none";
