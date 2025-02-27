@@ -13,7 +13,7 @@
             window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
         }
     </script>
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
     <script>
@@ -22,154 +22,96 @@
         gtag('js', new Date());
         gtag('config', 'YOUR-GA-ID');
     </script>
-    
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css"> <!-- Consider separating your CSS into an external file -->
+
+    <!-- Responsive Design Enhancement (CSS for smaller devices) -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            transition: background 0.5s;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: auto;
-            loading: lazy; /* Performance Optimization */
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-        }
-        nav {
-            background: #444;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .content {
-            padding: 50px;
-            text-align: center;
-        }
-        .dark-mode {
-            background-color: #222;
-            color: white;
-        }
-        footer {
-            background: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .contact-form {
-            max-width: 400px;
-            margin: 0 auto;
-            text-align: left;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .contact-form label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .contact-form button:hover {
-            background: #555;
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         My Networking Project
     </header>
-    <nav>
+
+    <nav role="navigation">
         <a href="#about">About</a>
         <a href="#networking">Networking Concepts</a>
         <a href="#contact">Contact</a>
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </nav>
+
     <div class="content" id="about">
         <h1>Welcome to My Website</h1>
         <p>This website is created as part of my Computer Networking project.</p>
     </div>
+
     <div class="content" id="networking">
         <h2>Networking Concepts</h2>
         <p><strong>Domain & Hosting:</strong> Hosted using GitHub Pages with a custom domain.</p>
         <p><strong>DNS & IP:</strong> The domain resolves to an IP address via DNS servers.</p>
         <p><strong>Security:</strong> HTTPS encryption enforced.</p>
     </div>
+
     <div class="content" id="contact">
         <h2>Contact Me</h2>
         <div class="contact-form">
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                
+            <form id="contactForm" method="post">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required aria-label="Your full name">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required aria-label="Your message"></textarea>
+
                 <!-- Google reCAPTCHA -->
                 <div class="g-recaptcha" data-sitekey="6LdlvuQqAAAAAFC2W2HT4ctQxl-KkSN7eoCODL57"></div>
-                
+
                 <button type="submit">Send</button>
             </form>
             <p id="responseMessage" style="color: green; display: none;">Message sent successfully!</p>
         </div>
     </div>
-    <footer>
+
+    <footer role="contentinfo">
         &copy; 2025
     </footer>
-    
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- External JavaScript file -->
+    <script src="scripts.js"></script> <!-- Consider moving your JS to an external file -->
+
     <script>
+        // Dark Mode toggle function
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
-        
+
+        // Form submission handler with input sanitization
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
             let name = document.getElementById("name").value;
             let message = document.getElementById("message").value;
-            
+
             // Sanitize user input
             name = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
             message = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-            
+
             if (grecaptcha.getResponse() === "") {
                 alert("Please complete the reCAPTCHA.");
                 return;
             }
-            
+
             document.getElementById("responseMessage").style.display = "block";
             setTimeout(() => {
                 document.getElementById("responseMessage").style.display = "none";
