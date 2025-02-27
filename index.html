@@ -7,25 +7,13 @@
     <meta name="description" content="A Computer Networking project demonstrating domain setup, hosting, and networking concepts.">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph Meta Tags for Social Media Sharing -->
-    <meta property="og:title" content="My Networking Project">
-    <meta property="og:description" content="A Computer Networking project demonstrating domain setup, hosting, and networking concepts.">
-    <meta property="og:image" content="URL-to-image">
-    <meta property="og:url" content="https://mahmed50.github.io/CN-project/">
-    
-    <!-- Twitter Cards Meta Tags -->
-    <meta name="twitter:title" content="My Networking Project">
-    <meta name="twitter:description" content="A Computer Networking project demonstrating domain setup, hosting, and networking concepts.">
-    <meta name="twitter:image" content="URL-to-image">
-    <meta name="twitter:card" content="summary_large_image">
-
     <!-- Enforce HTTPS -->
     <script>
         if (window.location.protocol !== 'https:') {
             window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
         }
     </script>
-
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
     <script>
@@ -34,7 +22,7 @@
         gtag('js', new Date());
         gtag('config', 'YOUR-GA-ID');
     </script>
-
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -167,7 +155,7 @@
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
-
+        
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
             let name = document.getElementById("name").value;
@@ -181,9 +169,6 @@
                 alert("Please complete the reCAPTCHA.");
                 return;
             }
-
-            // Server-side form handling (backend implementation needed)
-            // Example: Sending data to the backend via POST (use XMLHttpRequest or Fetch API)
             
             document.getElementById("responseMessage").style.display = "block";
             setTimeout(() => {
